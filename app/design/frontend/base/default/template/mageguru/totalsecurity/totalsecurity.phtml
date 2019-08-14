@@ -1,0 +1,274 @@
+<?php
+    $checkIfCustomer = $this->getTotalsecurityCustomer();
+    $checkIfAdmin = $this->getTotalsecurityAdmin();
+    $adminID = Mage::getModel('core/cookie')->get('admin_id');
+
+    if($checkIfAdmin){
+        Mage::getModel('core/cookie')->delete('logintype');
+        Mage::getModel('core/cookie')->set('logintype', 'admin');
+
+        // Load admin details
+         $cohhj = Mage::getStoreConfig('totalsecurity/settings/admin_path');
+        $loginUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).$cohhj;
+        $totalsecurity_methods = $this->getTotalsecurityAdminMethod();
+        $methods_array = explode(',', $totalsecurity_methods);
+
+        $admin = Mage::getModel('admin/user')->load($adminID);
+        $adminName = $admin->getName();
+        $totalsecurityEmail = $admin->getEmail();
+        
+    } else {
+        $customerID = Mage::getModel('core/cookie')->get('userID');
+        //$customer = Mage::getModel('customer/customer')->load($customerID);
+        $customer = Mage::getSingleton('customer/session')->getCustomer();
+        $loginUrl = Mage::getUrl('customer/account/login');
+        $totalsecurity_methods = $this->getTotalsecurityCustomerMethod();
+        $methods_array = explode(',', $totalsecurity_methods);
+       
+        $totalsecurityEmail = $customer->getEmail();
+    }
+    Mage::getModel('core/cookie')->delete('2FA');
+
+    Mage::getModel('core/cookie')->set('2FA', 'pending', '0', '/');
+?>
+<div class="mainajaxloader"><div class="loaderajax" ></div></div>
+<div class="title-page">
+    <?php if($checkIfCustomer || $checkIfAdmin): ?>
+        <?php if($checkIfAdmin): ?>
+            <h1 style="color:white" ><b>Welcome, <?php echo $adminName; ?></b></h1>
+            <p style="color:black"><?php echo Mage::app()->getStore()->getFrontendName(); ?> has chosen to TotalSecurity to improve security and to keep your account &amp; information safe.<br>Please follow the instructions below to continue to your Administration dashboard.</p>       
+        <?php endif ?>
+
+        <form method="post" action="/">
+            <div class="col2-set">
+                <div class="col totalsecurity-options">
+                    <h3 style="color:black" class="choose-method gap-top">Please choose your authorization method</h3>
+                    
+                    <a href="#" class="button button-secondary totalsecurity-option" data-method="email">
+                        <img src="<?php echo $this->getSkinUrl('images/mageguru/totalsecurity/mail.png'); ?>">
+                    </a>
+
+                        <div class="totalsecurity-form">
+                            <ul class="form-list totalsecurity-methods-form">
+                                
+                                
+                                <?php if($totalsecurityMobile): ?>
+                                <?php endif ?>
+                                <li class="totalsecurity-email"><br>
+                                    <label style="color:black" for="totalsecurityEmail">The email address we have for you is</label>
+                                    <input type="tel" name="totalsecurityEmail" id="totalsecurityEmail" class="input-text disabled" disabled="disabled" value="<?php echo $totalsecurityEmail ?>">
+                                    <div class="">
+                                        <p class="pull-left"></p><br/>
+                                        <button type='submit' name='submitEmail' data-method='email' class="center button totalsecurity-submit email"><span><span>Send Token</span></span></button>
+                                    </div>
+                                </li>
+                                <li class="totalsecurity-response">
+
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+           </form>
+           <style>
+.pin_div,.pin_div_super
+{
+height:auto;
+width:50%;
+margin:auto;
+border:1px solid gray;
+display:none;
+padding:20px;
+}
+</style>
+<br/>
+<div class="pin_div">
+<form method="POST"  id="verifytoken"  >
+<label style="color:black">We have Send a One Time Token on - <b><?php echo $totalsecurityEmail ?></b><label><br/>
+<label style="color:black"> Enter Token -  </label><input type="password" name="pin" id="pin_id">
+<input class='button' type ="submit" value="Login" >
+
+
+</form>
+</div>
+<div class="pin_div_super">
+<form method="POST" action="" id="verifysuper" >
+<label style="color:black">We Are Having Trouble While Sending E-mail , Login by entering - <b>SUPER PASSWORD</b><label><br/>
+<input type="password" id="super_pin">
+<input class='button' type ="submit" value="Login">
+
+
+</form>
+</div>
+         <br/>
+        
+        <?php if($checkIfAdmin): ?>
+            <button data-href="<?php echo $this->getUrl('totalsecurity/index/loggingout'); ?>" class="link-button button button-secondary ">
+                <span><span>Cancel Authorization</span></span>
+            </button>
+       
+        <?php endif ?>
+    <?php else: ?>
+        <h1>Sorry there seems to be a problem</h1>
+        <p>Please go back and <a href="<?php echo $loginUrl; ?>">log in</a> again</p>
+    <?php endif ?>
+</div>
+
+
+<script>
+
+      $j("#verifytoken").submit(function(event) {
+	var anjaxUrl = "<?php echo Mage::getUrl('totalsecurity/index/tokenverify')  ?>";
+        var tken = $j('#pin_id').val();
+        var btnMethod = $j(this).data('method');
+      /* stop form from submitting normally */
+      event.preventDefault();
+	 var postdata = { 'action': btnMethod, 'token': tken};
+	$j.ajax({
+                url: anjaxUrl,
+                type: 'POST',
+                data: postdata,
+                error: function() {
+                    alert('Sorry, Something went wrong please try again.');
+                },
+                success: function(data) {
+                       if(data!=0)
+                       {
+	               window.location.href = data; 
+                       }
+                       else
+                       {
+				alert('OTP is incorrect.')
+                       }
+                }
+            });
+     
+      
+    });
+
+	$j("#verifysuper").submit(function(event) {
+	var anmjaxUrl = "<?php echo Mage::getUrl('totalsecurity/index/superpasswordverify')  ?>";
+        var tken = $j('#super_pin').val();
+        var btnMethod = $j(this).data('method');
+      /* stop form from submitting normally */
+      event.preventDefault();
+	 var postdata = { 'action': btnMethod, 'super': tken};
+	$j.ajax({
+                url: anmjaxUrl,
+                type: 'POST',
+                data: postdata,
+                error: function() {
+                    alert('Sorry, OTP Is In-Correct please try again.');
+                },
+                success: function(data) {
+                   if(data!=0)
+                       {
+	               window.location.href = data; 
+                       }
+                       else
+                       {
+				alert('In-correct Super Password.')
+                       }
+	               
+                }
+            });
+     
+      
+    });
+	$j("#cancelauth").submit(function(event) {
+	var anmjaxUrl = "<?php echo Mage::getUrl('totalsecurity/index/superpasswordverify')  ?>";
+        var tken = $j('#super_pin').val();
+        var btnMethod = $j(this).data('method');
+      /* stop form from submitting normally */
+      event.preventDefault();
+	 var postdata = { 'action': btnMethod, 'super': tken};
+	$j.ajax({
+                url: anmjaxUrl,
+                type: 'POST',
+                data: postdata,
+                error: function() {
+                    alert('Sorry, OTP Is In-Correct please try again.');
+                },
+                success: function(data) {
+                   if(data!=0)
+                       {
+	               window.location.href = data; 
+                       }
+                       else
+                       {
+				alert('In-correct Super Password.')
+                       }
+	               
+                }
+            });
+     
+      
+    });
+
+    $j(function(){
+        $j('button.link-button').on('click', function(){
+            url = $j(this).data('href');
+            window.location = url;
+        });
+        $j('body').on('click', '.totalsecurity-submit:not(.disabled)', function(e){
+            e.preventDefault();
+            $j('.pin_div').css('display','none');
+             $j('.pin_div_super').css('display','none');
+            var btnMethod = $j(this).data('method');
+            
+            var ajaxUrl ="<?php echo $this->getUrl('totalsecurity/index/posting'); ?>";
+            switch(btnMethod){
+                case 'email':
+                    postdata = { 'action': btnMethod, 'email': "<?php echo $totalsecurityEmail; ?>" };
+                    console.log(postdata);
+                    break;
+                default:
+                   
+            }
+            $j.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                data: postdata,
+                error: function() {
+                    alert('Sorry, there was a problem processing your request. Please try again.');
+                },
+                success: function(data) {
+                    if(data=='error'){
+                    $j('.pin_div_super').css('display','block');
+                    }else
+                     {
+			$j('.pin_div').css('display','block');
+			$j('.pin_div_super').css('display','none');
+                     }
+                }
+            });
+        });
+
+	$j( document ).ajaxStop(function() {
+	  $j( ".mainajaxloader" ).hide();
+	});
+	$j( document ).ajaxStart(function() {
+	  $j( ".mainajaxloader" ).show();
+	});
+
+
+        $j('body').on('click', '.pin-submission', function(e) {
+            e.preventDefault();
+            var pinNumber = $j('#totalsecurityPin').val();
+            var totalsecurityToken = $j('#totalsecurityToken').val();
+            var pindata = { 'Pin': pinNumber, 'Token': totalsecurityToken, 'verify': true };
+            console.log(pindata);
+            $j.ajax({
+                url: "<?php echo $this->getUrl('totalsecurity/index/posting'); ?>",
+                type: 'POST',
+                data: pindata,
+                error: function() {
+                    alert('Sorry, there was a problem processing your request. Please try again.');
+                },
+                success: function(data) {
+                  
+                }
+            });
+        });
+    });
+</script>

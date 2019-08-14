@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<package>
+    <name>TotalSecurity</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Protect your Store back-end against unauthorized logins and fraudsters today! Because passwords just aren't enough.</summary>
+    <description>Protect your Store backend against unauthorized logins and fraudsters today! Because passwords just aren't enough.&#xD;
+&#xD;
+Total Security helps you to protect your store sensitive data and records from unauthorized access and theft.&#xD;
+It provides a two factor authentication with an E-mail token send to store owner email address along with this feature&#xD;
+total security also keep track of all ip who are visiting your store admin panel links.You can watch the ip with ease and detect whether it is a authorized or an unauthorized access.&#xD;
+&#xD;
+You can also block an ip at the same time or keep them to a watch list or a white list.</description>
+    <notes>Protect your Store backend against unauthorized logins and fraudsters today! Because passwords just aren't enough.&#xD;
+&#xD;
+Total Security helps you to protect your store sensitive data and records from unauthorized access and theft.&#xD;
+It provides a two factor authentication with an E-mail token send to store owner email address along with this feature&#xD;
+total security also keep track of all ip who are visiting your store admin panel links.You can watch the ip with ease and detect whether it is a authorized or an unauthorized access.&#xD;
+&#xD;
+You can also block an ip at the same time or keep them to a watch list or a white list.&#xD;
+&#xD;
+Features :&#xD;
+&#xD;
+1.  Two step authentication for store admin .&#xD;
+&#xD;
+2.  Email token send to store owner .&#xD;
+&#xD;
+3.  Option of a SUPER PASSWORD in case email token not recieved.&#xD;
+&#xD;
+3.  Ip-watch on the fly.&#xD;
+&#xD;
+4.  Can Block an IP ,sent to Watch list or White list.&#xD;
+&#xD;
+5.  Enable/Disable Module from Backend .&#xD;
+&#xD;
+6.  Option to set Email Reciever.&#xD;
+&#xD;
+7.  Option to Check Ip Flood for a particular IP.&#xD;
+&#xD;
+8.  Send Mail to Admin When Flood Limit has been achieved.&#xD;
+&#xD;
+9.  Set Flood count.&#xD;
+&#xD;
+10. Easy to install , support all themes.</notes>
+    <authors><author><name>developer</name><user>developer</user><email>mageguruindia@gmail.com</email></author></authors>
+    <date>2016-01-15</date>
+    <time>15:29:14</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Mageguru_Totalipsecurity.xml" hash="f0a43ff4bc471f4eaf28964890948e2c"/><file name="Mageguru_Totalsecurity.xml" hash="27ffce9e3080cf2c9cb4215c7e78e629"/></dir></target><target name="magecommunity"><dir name="Mageguru"><dir name="Totalipsecurity"><dir name="Block"><dir name="Adminhtml"><file name="Blocked.php" hash="23f94d5984e68a05e699d633d71086e0"/><file name="Grid.php" hash="8ecf37e8f23adbab9fe0ab6fcbe7e417"/><file name="Logurl.php" hash="286769922f615c52dba10024c8a64f93"/><file name="Oneip.php" hash="c2749b88dbcaaed4082b36fe15082622"/><dir name="Totalipsecurity"><dir name="Blocked"><file name="Grid.php" hash="a7267574172e22c6b3004603f9ec12af"/></dir><file name="Grid.php" hash="cd90a4dd2f1f5859c0a207281d46b2ba"/><dir name="Logurl"><file name="Grid.php" hash="f9e93166066d2c4e03e9b5c642a7c98d"/></dir><dir name="Oneip"><file name="Block.php" hash="310e607dd1f250f8ab6d7707efb8e56c"/></dir><dir name="Renderer"><file name="Blockthisip.php" hash="357fe37df0cd3e0d1ab85665b7d8013a"/><file name="Count.php" hash="b2ac8e9373a78b1b76c82d431e2d00a6"/><file name="Firstvisit.php" hash="950967b97a3f9fcccfac11968f3e5d3d"/><file name="Google.php" hash="0c5f0353226f98c28664ace6120443a4"/><file name="Lasturl.php" hash="371b3537910b41b9265438b6b55ef114"/><file name="Lastvisit.php" hash="883488a5311ad3ead5535aa0d0557e84"/><file name="Notes.php" hash="1467219e8022246a4005a818dbc7016e"/><file name="Pretty.php" hash="fe18c7fe28036341f25415472f2ef12a"/><file name="Watchthisip.php" hash="07af197aeacdfb1efc4c9d0bd0e730e4"/><file name="Whitethisip.php" hash="1e343339cdc0431f6d15f9b708342c13"/></dir><file name="Renderer.php" hash="fcc6b909a9bfbd0bda443aac386fb652"/><dir name="Watch"><file name="Grid.php" hash="3b881341108f307b1116dd9957136422"/></dir><dir name="White"><file name="Grid.php" hash="7f6b3f450738e06cf28002d15a50aec7"/></dir></dir><file name="Watch.php" hash="68745b52aa2072c8242ba941f9856823"/><file name="White.php" hash="48b8b694e6caf844073ca6ccb0e60a77"/></dir></dir><dir name="Helper"><file name="Data.php" hash="ba578a9ffcdb9d355e7ece1e66a30712"/></dir><dir name="Model"><dir name="Log"><dir name="Remoteaddr"><file name="Notes.php" hash="9272c7350d9bcef5092ced86ba9bee51"/></dir><file name="Url.php" hash="69c1abb3a2284322ddcc76831b88dfa0"/></dir><dir name="Mysql4"><dir name="Log"><dir name="Remoteaddr"><dir name="Notes"><file name="Collection.php" hash="a45eb193c2856d3c37fc5e684d48e869"/></dir><file name="Notes.php" hash="9cc8667585624350c15d6cfb49f4a386"/></dir><dir name="Url"><file name="Collection.php" hash="df562634de60b3991a1ac2d955b0d224"/></dir><file name="Url.php" hash="493d17854cd45ff4b5ef7bda327bf524"/></dir><dir name="Totalipsecurity"><file name="Collection.php" hash="684863b56e47fec2bb06e8e382d6ffb4"/></dir><file name="Totalipsecurity.php" hash="f2bd417b8506893ecc6de8067e364390"/></dir><file name="Notes.php" hash="f89ce0b5bb7feb6c9fa2e903f54593bb"/><file name="Observer.php" hash="4e19ad78731a70f4fb33fec8957c4f6a"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="TotalipsecurityController.php" hash="500ca83894da55b48c8165c02d79399b"/></dir><file name="IndexController.php" hash="360c4b97e7eb751470a9ed8367a0ed04"/></dir><dir name="etc"><file name="adminhtml.xml" hash="f8dd56f13b2477197b4cab0e8edc1f6d"/><file name="config.xml" hash="277de8ee6d85a20126a4c37c2cf3f7c6"/><file name="system.xml" hash="4a711b9e89df0042aab871e307fd8abe"/></dir><dir name="sql"><dir name="totalipsecurity_setup"><file name="mysql4-install-0.3.1.php" hash="eb018ad2b85783c8856e322c5a5a8f25"/></dir></dir></dir><dir name="Totalsecurity"><dir name="Block"><file name="Totalsecurity.php" hash="446827c2ae30a51d0eae6ebbefa73941"/></dir><dir name="Helper"><file name="Data.php" hash="dccf34827a6bfedf6e4163362aeb74e1"/></dir><dir name="Model"><dir name="Adminhtml"><file name="Session.php" hash="f423fef8cbabc4fcee02d92f3861dc1b"/></dir><file name="Session.php" hash="55215f6cbee99ba8901a40cd706fb6b5"/><dir name="System"><dir name="Config"><dir name="Source"><file name="Method.php" hash="c7549eb67a3e287be67281000a23c87a"/></dir></dir></dir></dir><dir name="controllers"><dir name="Adminhtml"><file name="IndexController.php" hash="74aec02bebe09708e34b41df52692677"/></dir><file name="IndexController.php" hash="de950a004ab84e06e2b3215e38a547aa"/></dir><dir name="etc"><file name="adminhtml.xml" hash="4ee3b8a7609b959a9b576d6525d140de"/><file name="config.xml" hash="4ea72aa9357c2f97fb43154dbf03313b"/><file name="system.xml" hash="970174f8dcd3092fd4a362acb421a9e9"/></dir></dir></dir></target><target name="mageweb"><dir name="js"><dir name="mageguru"><dir name="totalsecurity"><file name="jquery-1.10.2.js" hash="91515770ce8c55de23b306444d8ea998"/><file name="jquery-1.10.2.min.js" hash="841dc30647f93349b7d8ef61deebe411"/><file name="jquery-1.10.2.min.map" hash="6c3ccfc221d36777d383b6e04d0b8af9"/><file name="noconflict.js" hash="3479e3097274d22a40932955459b15c6"/><file name="totalsecurity.js" hash="356d3a6b691a99bc3f327975be166d03"/></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="css"><dir name="mageguru"><dir name="totalsecurity"><file name="totalsecurity.css" hash="79d04c057c86e94e231d512fff4f54f4"/></dir></dir></dir><dir name="images"><dir name="mageguru"><dir name="totalsecurity"><file name="ajax-loader.gif" hash="25148316277a51b68f03c13283fb1aec"/><file name="back.jpg" hash="8219a8bc518a916bf6686e34afc5d989"/><file name="mail.png" hash="8bfb0fc71c817a6003d1c7e978453858"/></dir></dir></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="mageguru"><dir name="totalsecurity"><file name="totalsecurity.xml" hash="07766d599c1dd468fa501c631ce14386"/></dir></dir></dir><dir name="template"><dir name="mageguru"><dir name="totalsecurity"><file name="totalsecurity.phtml" hash="3ae55fe2ca47f4c43f91cf207a6658d2"/><file name="totalsecurity.phtml~" hash="3ae55fe2ca47f4c43f91cf207a6658d2"/></dir></dir><dir name="page"><dir name="mageguru"><file name="totalsecurity.phtml" hash="a5157d3c8bb100f634dac5b3652bb0ec"/></dir></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><dir name="mageguru"><dir name="totalsecurity"><file name="totalsecurityadmin.xml" hash="ca03326fa70aaa59c6e97a0415e2d7fa"/></dir></dir><file name="mageguru_totalipsecurity.xml" hash="76d015163cbdc55ba5e85b4fecab628d"/></dir><dir name="template"><dir name="mageguru"><dir name="totalipsecurity"><file name="inline-edit.phtml" hash="1b42183608c087284a9c20fbb0276d87"/><file name="oneip.phtml" hash="2e4e8c21cec00b507b0114dd68ea578a"/></dir><dir name="totalsecurity"><file name="login.phtml" hash="1617064018ac13a3dca0ff9746675d98"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

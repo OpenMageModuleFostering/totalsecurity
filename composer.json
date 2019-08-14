@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/TotalSecurity",
+    "type": "magento-module",
+    "license": "OSL",
+    "homepage": "",
+    "description": "Protect your Store back-end against unauthorized logins and fraudsters today! Because passwords just aren't enough.",
+    "authors": [
+    {
+        "name": "developer",
+        "email": "mageguruindia@gmail.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

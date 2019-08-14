@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <adminhtml_totalipsecurity_index>
+        <reference name="js">
+            <block type="core/template" template="mageguru/totalipsecurity/inline-edit.phtml" />
+        </reference>
+        <reference name="content">
+       		<block type="totalipsecurity/adminhtml_grid" name="totalipsecurity" />
+       	</reference>
+    </adminhtml_totalipsecurity_index>
+    <adminhtml_totalipsecurity_blocked>
+        <reference name="js">
+            <block type="core/template" template="mageguru/totalipsecurity/inline-edit.phtml" />
+        </reference>
+        <reference name="content">
+       		<block type="totalipsecurity/adminhtml_blocked" name="totalipsecurity" />
+       	</reference>
+    </adminhtml_totalipsecurity_blocked>
+    <adminhtml_totalipsecurity_white>
+        <reference name="js">
+            <block type="core/template" template="mageguru/totalipsecurity/inline-edit.phtml" />
+        </reference>
+        <reference name="content">
+       		<block type="totalipsecurity/adminhtml_white" name="totalipsecurity" />
+       	</reference>
+    </adminhtml_totalipsecurity_white>
+    <adminhtml_totalipsecurity_watch>
+        <reference name="js">
+            <block type="core/template" template="mageguru/totalipsecurity/inline-edit.phtml" />
+        </reference>
+        <reference name="content">
+       		<block type="totalipsecurity/adminhtml_watch" name="totalipsecurity" />
+       	</reference>
+    </adminhtml_totalipsecurity_watch>
+    <adminhtml_totalipsecurity_logurl>
+        <reference name="js">
+            <block type="core/template" template="mageguru/totalipsecurity/inline-edit.phtml" />
+        </reference>
+        <reference name="content">
+       		<block type="totalipsecurity/adminhtml_logurl" name="totalipsecurity" />
+       	</reference>
+    </adminhtml_totalipsecurity_logurl>
+  	<adminhtml_totalipsecurity_oneip>
+        <reference name="content">
+            <block type="core/template" template="mageguru/totalipsecurity/oneip.phtml" />
+        </reference>
+    </adminhtml_totalipsecurity_oneip>
+</layout>

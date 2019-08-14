@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addJs"><script>mageguru/totalsecurity/jquery-1.10.2.min.js</script></action>
+            <action method="addJs"><script>mageguru/totalsecurity/noconflict.js</script></action>
+            <action method="addJs"><script>mageguru/totalsecurity/totalsecurity.js</script></action>
+        </reference>
+    </default>
+
+    <totalsecurity_index_index>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/mageguru/totalsecurity/totalsecurity.css</stylesheet></action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/mageguru/totalsecurity.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <action method="setCacheLifetime"><s>null</s></action>
+            <block type="totalsecurity/totalsecurity" name="totalsecurity" template="mageguru/totalsecurity/totalsecurity.phtml" />
+
+        </reference>
+
+    </totalsecurity_index_index>
+
+  
+
+</layout>
