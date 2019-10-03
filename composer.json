@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/TotalSecurity",
+    "name": "openmage-module-fostering\/totalsecurity",
     "type": "magento-module",
-    "license": "OSL",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Protect your Store back-end against unauthorized logins and fraudsters today! Because passwords just aren't enough.",
     "authors": [
